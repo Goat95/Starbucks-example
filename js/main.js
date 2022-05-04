@@ -16,6 +16,7 @@ searchInputEl.addEventListener("blur", function () {
 });
 
 const badgeEl = document.querySelector("header .badges");
+const toTopEl = document.querySelector('#to-top')
 
 // _.throttle(함수, 시간)
 window.addEventListener("scroll", _.throttle(function () {
@@ -25,15 +26,30 @@ window.addEventListener("scroll", _.throttle(function () {
     gsap.to(badgeEl, .6, {
       opacity: 0,
       display: "none"
-    });
+    })
+
+    gsap.to(toTopEl, .2, {
+      x: 0
+    })
   } else {
     // 배지 보이기
     gsap.to(badgeEl, .6, {
       opacity: 1,
       display: "block"
-    });
+    })
+
+    gsap.to(toTopEl, .2, {
+      x: 100
+    })
   }
 }, 300));
+
+toTopEl.addEventListener('click', function () {
+  // 페이지 위치를 최상단으로 부드럽게(0.7초 동안) 이동.
+  gsap.to(window, .7, {
+    scrollTo: 0
+  })
+})
 
 const fadeEls = document.querySelectorAll(".visual .fade-in");
 fadeEls.forEach(function (fadeEl, index) {
@@ -123,3 +139,9 @@ spyEls.forEach(function (spyEl) {
     .setClassToggle(spyEl, "show")
     .addTo(new ScrollMagic.Controller());
 });
+
+/**
+ * 올해가 몇 년도인지 계산
+ */
+const thisYear = document.querySelector('.this-year')
+thisYear.textContent = new Date().getFullYear()
