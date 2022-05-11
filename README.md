@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/320a68cf-fd26-49ae-aa2e-0928ecf2e2f1/deploy-status)](https://app.netlify.com/sites/goatstarbucks/deploys)
+
 # 스타벅스 클론코딩
 
 패스트캠퍼스에서 제공해주는 온라인 강의를 보면서 스타벅스 랜딩 페이지를 클론 코딩했습니다.
